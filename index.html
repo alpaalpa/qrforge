@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRForge – QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QRForge</h1>
+            <p class="subtitle">Generate scannable QR codes instantly – no server required</p>
+        </header>
+
+        <main>
+            <div class="card input-card">
+                <label for="qr-input">URL or text</label>
+                <input
+                    type="text"
+                    id="qr-input"
+                    placeholder="https://example.com  or  mailto:user@example.com"
+                    autocomplete="off"
+                    spellcheck="false"
+                />
+
+                <div class="options-row">
+                    <div class="option-group">
+                        <label for="qr-size">Size</label>
+                        <select id="qr-size">
+                            <option value="128">128 px</option>
+                            <option value="256" selected>256 px</option>
+                            <option value="512">512 px</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label for="qr-ecl">Error correction</label>
+                        <select id="qr-ecl">
+                            <option value="L">Low (L)</option>
+                            <option value="M" selected>Medium (M)</option>
+                            <option value="Q">Quartile (Q)</option>
+                            <option value="H">High (H)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generate-btn" type="button">Generate QR Code</button>
+            </div>
+
+            <div id="output-section" class="card output-card hidden">
+                <div id="qrcode-wrapper">
+                    <div id="qrcode"></div>
+                </div>
+                <button id="download-btn" type="button">⬇ Download PNG</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Runs entirely in your browser – no data is sent to any server.</p>
+        </footer>
+    </div>
+
+    <!-- qrcodejs – MIT licence, loaded from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+            integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSe2HtN1kXnE7b7NXIzSAN5S7BoFl5MpxGgw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+</body>
+</html>
